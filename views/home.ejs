@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="jumbotron" align="center">
+    <div class="container">
+        <h3>R* index for Cassandra</h3>
+        <hr/>
+        <div class="form-group">
+            <h4>Insertion</h4><hr/>
+            <form action = "/pointInsert" method="post">
+            <div class="form-group">
+                <b>Single Data Insertion</b><br/><br/>
+                <label for="fid">F-ID</label>
+                <input type="text" class="form-control-dark" name="fid">
+                <label for="id">ID</label>
+                <input type="text" class="form-control-dark" name="id">
+                <label for="name">Name</label>
+                <input type="text" class="form-control-dark" name="name">
+                <label for="city">City</label>
+                <input type="text" class="form-control-dark" name="city">
+                <label for="state">State</label>
+                <input type="text" class="form-control-dark" name="state"><br/>
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control-dark" name="zip">
+                <label for="county">County</label>
+                <input type="text" class="form-control-dark" name="county">
+                <label for="fips">FIPS</label>
+                <input type="text" class="form-control-dark" name="fips">
+                <label for="naicsdescr">NAICSDESCR</label>
+                <input type="text" class="form-control-dark" name="naicsdescr"><br/>
+                <label for="x">Latitude</label>
+                <input type="text" class="form-control-dark" name="x">
+                <label for="y">Longitude</label>
+                <input type="text" class="form-control-dark" name="y">
+                <br/><br/>
+                <input type="submit" class="btn btn-primary" value="Insert"><br/>
+            </div>
+            </form>
+            <form action = "/bulk" enctype="multipart/form-data" method="post">
+            <div class="form-group">
+                <br/>
+                <b>Bulk data load </b><br/><br/>
+                <input name="csvFile" type="file"/>
+                <input type="submit" class="btn btn-primary" value="Bulk load"> <br/>
+            </div>
+            </form>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <h4>Deletion</h4><hr/>
+            <form action="/deleteSingle" method="post">
+            <div class="form-group">
+                <b>Single Point Data Deletion</b><br/><br/>
+                <label for="x">X</label>
+                <input type="text" class="form-control-dark" name="x">
+                <label for="y">Y</label>
+                <input type="text" class="form-control-dark" name="y"> <br/><br/>
+                <input type="submit" class="btn btn-primary" value="Delete">
+            </div>
+            </form>
+            <form action="/deleteAll" method="post">
+            <div class="form-group">
+                <b>Delete All Data</b><br/><br/>
+                <input type="submit" class="btn btn-primary" value="Delete All">
+            </div>
+            </form>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <h4>Query Data</h4><hr/>
+            <form action="/search" method="post">
+                <div class="form-group">
+                    <b>Overlaps (Search)</b> <br/><br/>
+                    <b>Enter the coordinates of the bounding box to perform a search</b><br/><br/>
+                    <label for="minx">Min-X</label>
+                    <input type="text" class="form-control-dark" name="minx">
+                    <label for="miny">Min-Y</label>
+                    <input type="text" class="form-control-dark" name="miny">
+                    <label for="maxx">Max-X</label>
+                    <input type="text" class="form-control-dark" name="maxx">
+                    <label for="maxy">Max-Y</label>
+                    <input type="text" class="form-control-dark" name="maxy">
+                    <br/><br/>
+                    <input type="submit" class="btn btn-primary" value="Search"><br/>
+                </div>
+            </form>
+            <br/>
+            <form action="/intersects" method="post">
+                <div class="form-group">
+                    <b>Intersects</b> <br/><br/>
+                    <b>Enter the coordinates of the bounding box to perform a intersects operation</b><br/><br/>
+                    <label for="minx">Min-X</label>
+                    <input type="text" class="form-control-dark" name="minx">
+                    <label for="miny">Min-Y</label>
+                    <input type="text" class="form-control-dark" name="miny">
+                    <label for="maxx">Max-X</label>
+                    <input type="text" class="form-control-dark" name="maxx">
+                    <label for="maxy">Max-Y</label>
+                    <input type="text" class="form-control-dark" name="maxy">
+                    <br/><br/>
+                    <input type="submit" class="btn btn-primary" value="Find"><br/>
+                </div>
+            </form>
+            <form action="/knn" method="post">
+                <div class="form-group">
+                    <b>K-Nearest Neighbors</b><br/><br/>
+                    <label for="x">X</label>
+                    <input type="text" class="form-control-dark" name="x">
+                    <label for="y">Y</label>
+                    <input type="text" class="form-control-dark" name="y"> <br/><br/>
+                    <label for="k">Number of Neighbors</label>
+                    <input type="text" class="form-control-dark" name="k"> <br/><br/>
+                    <input type="submit" class="btn btn-primary" value="Get">
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>
