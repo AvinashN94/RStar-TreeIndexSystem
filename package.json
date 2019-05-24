@@ -1,0 +1,27 @@
+{
+  "name": "project",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "supervisor -w app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cassandra-driver": "^4.0.0",
+    "cookie-parser": "~1.4.3",
+    "csv": "^0.3.7",
+    "debug": "~2.6.9",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.1.1-alpha.3",
+    "formidable": "^1.2.1",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "pug": "^2.0.3",
+    "querystring": "^0.2.0",
+    "rbush": "^2.0.2",
+    "rbush-knn": "^2.1.0",
+    "request": "^2.88.0",
+    "require.js": "^1.0.0"
+  }
+}
